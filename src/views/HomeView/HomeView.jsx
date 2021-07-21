@@ -1,9 +1,7 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
 import { Container, Box } from '@material-ui/core';
 import HomeTwoTone from '@material-ui/icons/HomeTwoTone';
 import { makeStyles } from '@material-ui/core/styles';
-import { contactsActions } from 'redux/contacts';
 
 const useStyles = makeStyles({
   container: {
@@ -22,24 +20,11 @@ const useStyles = makeStyles({
 const HomeView = () => {
   const classes = useStyles();
 
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(contactsActions.showNotify('wefefew ewf ewf we'));
-  }, [dispatch]);
-
   return (
     <section id="home" className={classes.home}>
       <Container fixed className={classes.container}>
         <Box component="div" className={classes.content}>
           <HomeTwoTone />
-          <button
-            onClick={() => {
-              dispatch(contactsActions.showNotify(Date.now()));
-            }}
-          >
-            click
-          </button>
         </Box>
       </Container>
     </section>

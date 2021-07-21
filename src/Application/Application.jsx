@@ -42,27 +42,34 @@ export default function Application() {
       <main>
         <Suspense fallback={null}>
           <Switch>
-            <PublicRoute exact path={routes.home} component={HomeView} />
+            <PublicRoute exact path={routes.home}>
+              <HomeView />
+            </PublicRoute>
+
             <PublicRoute
               exact
               restricted
               path={routes.login}
               redirectPath={routes.contacts}
-              component={LoginView}
-            />
+            >
+              <LoginView />
+            </PublicRoute>
+
             <PublicRoute
               exact
               restricted
               path={routes.register}
               redirectPath={routes.contacts}
-              component={RegisterView}
-            />
+            >
+              <RegisterView />
+            </PublicRoute>
             <PrivateRoute
               exact
               path={routes.contacts}
-              component={ContactsView}
               redirectPath={routes.login}
-            />
+            >
+              <ContactsView />
+            </PrivateRoute>
             <Route render={() => <Redirect to={{ pathname: routes.home }} />} />
           </Switch>
         </Suspense>

@@ -29,7 +29,7 @@ const useStyles = makeStyles({
 
 export default function Navigation() {
   const classes = useStyles();
-  const isAuthenticated = useSelector(authSelectors.getIsAuthenticated);
+  const isLoggedIn = useSelector(authSelectors.getIsLogged);
   return (
     <Box component="div" className={classes.box}>
       <Button color="primary" className={classes.button}>
@@ -42,7 +42,7 @@ export default function Navigation() {
           Main
         </NavLink>
       </Button>
-      {isAuthenticated && (
+      {isLoggedIn && (
         <Button color="primary" className={classes.button}>
           <NavLink
             exact

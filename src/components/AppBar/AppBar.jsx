@@ -23,7 +23,7 @@ const useStyles = makeStyles({
 const AppBar = () => {
   const classes = useStyles();
 
-  const isAuthenticated = useSelector(authSelectors.getIsAuthenticated);
+  const isLoggedIn = useSelector(authSelectors.getIsLogged);
 
   return (
     <header className={classes.header}>
@@ -33,7 +33,7 @@ const AppBar = () => {
             <Navigation />
           </Grid>
           <Grid item xs={12} sm={'auto'}>
-            {isAuthenticated ? <UserMenu /> : <AuthNavigation />}
+            {isLoggedIn ? <UserMenu /> : <AuthNavigation />}
           </Grid>
         </Grid>
       </Container>
